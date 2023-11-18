@@ -11,6 +11,16 @@ sudo steamos-readonly disable
 sudo pacman-key --init
 sudo pacman-key --populate archlinux
 
+# Note: after updating SteamOS to version 3.5.5 I had to reset pacman keys to
+# fix invalid signature errors.
+#
+# From link:
+# https://wiki.archlinux.org/title/Pacman/Package_signing#Resetting_all_the_keys
+#
+# > Remove or reset all the keys installed in your system by removing the
+# > /etc/pacman.d/gnupg directory (as root) and by rerunning `pacman-key --init`
+# > followed by `pacman-key --populate` to re-add the default keys. 
+
 # Update package manager
 sudo pacman -Syu
 

@@ -1,6 +1,6 @@
 #!/bin/bash
-ROCM_PYTORCH_IMAGE=jamesmcclain/pytorch-rocm:rocm5.4.2-ubuntu22.04 
-# ROCM_PYTORCH_IMAGE=rocm/pytorch:latest
+# ROCM_PYTORCH_IMAGE=jamesmcclain/pytorch-rocm:rocm5.4.2-ubuntu22.04 
+ROCM_PYTORCH_IMAGE=rocm/pytorch:latest
 VRAM="4G"
 
 alias docker-stop-all="[[ ! -z \$(docker ps -aq) ]] \
@@ -22,8 +22,7 @@ alias docker-rm-all="docker-stop > /dev/null 2>&1; \
 # - "--group-add video" adds the container to the ‘video’ group, providing access to GPU devices;
 # - "-e HSA_OVERRIDE_GFX_VERSION=10.3.0" export envvar `HSA_OVERRIDE_*` to container
 #
-# The `rocminfo` command states that the GPU in the SteamDeck is a `gfx1033o
-t
+# The `rocminfo` command states that the GPU in the SteamDeck is a `gfx1033`
 # device.  Since ROCm 5.4.2 only officialy supports `gfx1030` devices, we are
 # overriding the GPU identification to try to have ROCm working in the
 # SteamDeck.
